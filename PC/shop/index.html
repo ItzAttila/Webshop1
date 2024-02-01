@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+<html lang="hu">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hardverek</title>
+  <link rel="stylesheet" href="harverek.css">
+    <link rel="icon" href="https://akosvendler11.github.io/Webshop/F%C5%91oldal/webshopt.png" type="image/icon type">
+  <link rel="stylesheet" href="https://akosvendler11.github.io/Webshop/PS/PS4/style.css">
+  <link rel="stylesheet" href="https://akosvendler11.github.io/Webshop/PS/PS4/kereso.css">
+  <link rel="stylesheet" href="modal.css">
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+<script src="cart.js"></script>
+</head>
+
+<body onload="kos()">
+  <nav>
+    <ul>
+      <li>
+        <a href="https://akosvendler11.github.io/Webshop/F%C5%91oldal/index.html"><img style="border-radius: 50%; width: 3%; position: fixed; left: 10px; top: 10px;" class="logo" src="webshopt.png" alt="Főoldal"></a>
+        <div style="position: fixed; left: 100px; top: 10px;" class="search">
+          <div class="icon"></div>
+            <div class="input">
+                <input type="text" placeholder="Keresés" id="mysearch">
+            </div>
+            <span class="clear" onclick="document.getElementById
+            ('mysearch').value = ' ' "></span>
+        </div>
+      </li>
+      <script>
+          const icon = document.querySelector('.icon');
+          const search = document.querySelector('.search');
+          icon.onclick = function(){
+              search.classList.toggle('active')
+          }
+      </script>  
+      <li><a href="https://akosvendler11.github.io/Webshop/PC/index.html"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pc-display" viewBox="0 0 16 16">
+        <path d="M8 1a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1v14a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1V1Zm1 13.5a.5.5 0 1 0 1 0 .5.5 0 0 0-1 0Zm2 0a.5.5 0 1 0 1 0 .5.5 0 0 0-1 0ZM9.5 1a.5.5 0 0 0 0 1h5a.5.5 0 0 0 0-1h-5ZM9 3.5a.5.5 0 0 0 .5.5h5a.5.5 0 0 0 0-1h-5a.5.5 0 0 0-.5.5ZM1.5 2A1.5 1.5 0 0 0 0 3.5v7A1.5 1.5 0 0 0 1.5 12H6v2h-.5a.5.5 0 0 0 0 1H7v-4H1.5a.5.5 0 0 1-.5-.5v-7a.5.5 0 0 1 .5-.5H7V2H1.5Z"/>
+      </svg>PC</a></li>
+      <li><a href="https://akosvendler11.github.io/Webshop/PS/index.html"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-playstation" viewBox="0 0 16 16">
+        <path d="M15.858 11.451c-.313.395-1.079.676-1.079.676l-5.696 2.046v-1.509l4.192-1.493c.476-.17.549-.412.162-.538-.386-.127-1.085-.09-1.56.08l-2.794.984v-1.566l.161-.054s.807-.286 1.942-.412c1.135-.125 2.525.017 3.616.43 1.23.39 1.368.962 1.056 1.356ZM9.625 8.883v-3.86c0-.453-.083-.87-.508-.988-.326-.105-.528.198-.528.65v9.664l-2.606-.827V2c1.108.206 2.722.692 3.59.985 2.207.757 2.955 1.7 2.955 3.825 0 2.071-1.278 2.856-2.903 2.072Zm-8.424 3.625C-.061 12.15-.271 11.41.304 10.984c.532-.394 1.436-.69 1.436-.69l3.737-1.33v1.515l-2.69.963c-.474.17-.547.411-.161.538.386.126 1.085.09 1.56-.08l1.29-.469v1.356l-.257.043a8.454 8.454 0 0 1-4.018-.323Z"/>
+      </svg> PlayStation</a></li>
+      <li><a href="https://akosvendler11.github.io/Webshop/Xbox/index.html"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-xbox" viewBox="0 0 16 16">
+        <path d="M7.202 15.967a7.987 7.987 0 0 1-3.552-1.26c-.898-.585-1.101-.826-1.101-1.306 0-.965 1.062-2.656 2.879-4.583C6.459 7.723 7.897 6.44 8.052 6.475c.302.068 2.718 2.423 3.622 3.531 1.43 1.753 2.088 3.189 1.754 3.829-.254.486-1.83 1.437-2.987 1.802-.954.301-2.207.429-3.239.33Zm-5.866-3.57C.589 11.253.212 10.127.03 8.497c-.06-.539-.038-.846.137-1.95.218-1.377 1.002-2.97 1.945-3.95.401-.417.437-.427.926-.263.595.2 1.23.638 2.213 1.528l.574.519-.313.385C4.056 6.553 2.52 9.086 1.94 10.653c-.315.852-.442 1.707-.306 2.063.091.24.007.15-.3-.319Zm13.101.195c.074-.36-.019-1.02-.238-1.687-.473-1.443-2.055-4.128-3.508-5.953l-.457-.575.494-.454c.646-.593 1.095-.948 1.58-1.25.381-.237.927-.448 1.161-.448.145 0 .654.528 1.065 1.104a8.372 8.372 0 0 1 1.343 3.102c.153.728.166 2.286.024 3.012a9.495 9.495 0 0 1-.6 1.893c-.179.393-.624 1.156-.82 1.404-.1.128-.1.127-.043-.148ZM7.335 1.952c-.67-.34-1.704-.705-2.276-.803a4.171 4.171 0 0 0-.759-.043c-.471.024-.45 0 .306-.358A7.778 7.778 0 0 1 6.47.128c.8-.169 2.306-.17 3.094-.005.85.18 1.853.552 2.418.9l.168.103-.385-.02c-.766-.038-1.88.27-3.078.853-.361.176-.676.316-.699.312a12.246 12.246 0 0 1-.654-.319Z"/>
+      </svg> Xbox</a></li>
+      
+      <a href="https://akosvendler11.github.io/Webshop/F%C5%91oldal/Reg/index.html">
+        <svg  style="color:white; position: fixed; left: 1800px; top: 20px; height: 50px; width: 50px;" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person" viewBox="0 0 16 16">
+          <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z"/>
+        </svg>
+        
+      </a>
+    
+       <li>
+         <svg  id="myBtn" class="cart" style="color:white; position: fixed; left: 1700px; top: 15px; height: 50px; width: 50px;" xmlns="http://www.w3.org/2000/svg"  height="16" fill="currentColor" class="bi bi-cart" viewBox="0 0 16 16">
+            <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
+          </svg>
+          <!--<span style="color: white; position: fixed; left: 1715px; top: 0px; font-size: 23px;">0</span>-->
+       </li>
+        
+       
+  </ul>
+ 
+</nav>
+
+<style>
+  body {font-family: Arial, Helvetica, sans-serif;}
+  
+  /* The Modal (background) */
+  .modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  }
+  
+  /* Modal Content */
+  .modal-content {
+    background-color: #fefefe;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+  }
+  
+  /* The Close Button */
+  .close {
+    color: #aaaaaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  </style>
+  </head>
+  <body>
+  
+  
+  
+  <!-- Trigger/Open The Modal -->
+  
+  
+  <!-- The Modal -->
+  <div id="myModal" class="modal">
+  
+    <!-- Modal content -->
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <div>
+        <h1 style="font-size: 70px;" onclick="kos()">Kosár</h1>
+        <svg width="54px" height="54px" id="kuka" onclick="torles()" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash3-fill" viewBox="0 0 16 16">
+          <path d="M11 1.5v1h3.5a.5.5 0 0 1 0 1h-.538l-.853 10.66A2 2 0 0 1 11.115 16h-6.23a2 2 0 0 1-1.994-1.84L2.038 3.5H1.5a.5.5 0 0 1 0-1H5v-1A1.5 1.5 0 0 1 6.5 0h3A1.5 1.5 0 0 1 11 1.5Zm-5 0v1h4v-1a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5ZM4.5 5.029l.5 8.5a.5.5 0 1 0 .998-.06l-.5-8.5a.5.5 0 1 0-.998.06Zm6.53-.528a.5.5 0 0 0-.528.47l-.5 8.5a.5.5 0 0 0 .998.058l.5-8.5a.5.5 0 0 0-.47-.528ZM8 4.5a.5.5 0 0 0-.5.5v8.5a.5.5 0 0 0 1 0V5a.5.5 0 0 0-.5-.5Z"/>
+        </svg>
+        <table id="tabla">
+          <tbody>
+            <!--<tr style="font-size: 25px;">
+              <th style="width: 450px;">Termék</th>
+              <th style="width: 450px;">Mennyiség</th>
+              <th style="width: 450px;">Ár</th>
+            </tr>
+            <tr style="font-size: 20px;">
+              <th style="width: 450px;">Fizetendő</th>
+              <th style="width: 450px;"> </th>
+              <th style="width: 450px;">0 Ft</th>
+            </tr>-->
+          </tbody>
+        </table>
+        <form action="cart.html"><button type="submit" style="position: fixed; left: 45%; top: 800px;" id="tovább">Tovább a fizetéshez</button></form>
+      </div>
+    </div>
+  
+  </div>
+  
+  <script>
+  // Get the modal
+  var modal = document.getElementById("myModal");
+  
+  // Get the button that opens the modal
+  var btn = document.getElementById("myBtn");
+  
+  // Get the <span> element that closes the modal
+  var span = document.getElementsByClassName("close")[0];
+  
+  // When the user clicks the button, open the modal 
+  btn.onclick = function() {
+    modal.style.display = "block";
+  }
+  
+  // When the user clicks on <span> (x), close the modal
+  span.onclick = function() {
+    modal.style.display = "none";
+  }
+  
+  // When the user clicks anywhere outside of the modal, close it
+  window.onclick = function(event) {
+    if (event.target == modal) {
+      modal.style.display = "none";
+    }
+  }
+  </script>
+  <div class="container">
+    <div class="heading">
+      <h1 style="text-align: left; color: white;">Videokártyák</h1>
+    </div>
+    <div class="row">
+      <div class="card">
+        <div class="card-header">
+          <h1>GIGABYTE RTX 3090</h1>
+        </div>
+        <div class="card-body">
+          <img src="https://www.gigabyte.com/FileUpload/Global/KeyFeature/1624/innergigabyteimages/rgb/cover.png" width="60%" height="30%"  alt="HARDVEREK" title="hardverek">
+          <p>
+            GIGABYTE RTX 3090 AORUS MASTER 24G OC videokártya (GV-N3090AORUS M-24GD)
+          </p>
+          <br>
+          <p style="text-align: center; color: Red;">1.000.000Ft</p>
+          <a onclick="hozzaad('GIGABYTE RTX 3090')" class="btn">Kosárba</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header">
+          <h1>RTX 3060 12GB </h1>
+        </div>
+        <div class="card-body">
+          <img src="https://dlcdnwebimgs.asus.com/gain/2d0b11ad-004a-4536-80d2-f5b573cbd1de/" width="50%" height="27%"  alt="HARDVEREK" title="hardverek">
+          <p>
+            ASUS TUF Gaming RTX 3060 V2 OC 12GB GDDR6 videokártya 
+          </p>
+          <br>
+          <p style="text-align: center;"><b>384.881 Ft</b></p>
+          <br>
+          <br>
+          <a onclick="hozzaad('RTX 3060 12GB')" class="btn">Kosárba</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header">
+          <h1>GIGABYTE RTX 3060 </h1>
+        </div>
+        <div class="card-body">
+          <img src="https://www.gigabyte.com/FileUpload/Global/KeyFeature/1728/innergigabyteimages/kf-img.png" width="50%" height="29.5%"  alt="HARDVEREK" title="hardverek">
+          <p>
+            GIGABYTE RTX 3060 Gaming OC 12G rev.2 LHR videókártya
+          </p>
+          <br>
+          <p style="text-align: center;"><b>307 691 Ft</b></p>
+          <br>
+          <a onclick="hozzaad('GIGABYTE RTX 3060')" class="btn">Kosárba</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header">
+          <h1>GIGABYTE GTX 1060</h1>
+        </div>
+        <div class="card-body">
+          <img src="https://s13emagst.akamaized.net/products/9299/9298109/images/res_3d64d75173e14001be6549a41d8cd551.png" width="50%" height="24%"  alt="HARDVEREK" title="hardverek">
+          <p>
+            GIGABYTE GTX1060 SWINDFORCE 2 videokártya, 6GB GDDR5, 192-bit
+          </p>
+          <br>
+          <p style="text-align: center;"><b>67.830 Ft</b></p>
+          <a onclick="hozzaad('GIGABYTE GTX 1060')" class="btn">Kosárba</a>
+        </div>
+      </div>
+    </div>
+    <div class="heading">
+      <h1 style="text-align: left; color: white;">Memória (RAM)</h1>
+    </div>
+    <div class="row">
+      <div class="card">
+        <div class="card-header">
+          <h1>Kingston FURY 16GB</h1>
+        </div>
+        <div class="card-body">
+          <img src="https://www.telepolis.pl/media/cache/resolve/amp_recommended_size/images/2021/06/Kingston-Fury-pamieci-RAM.jpg" width="50%" height="20%"  alt="HARDVEREK" title="hardverek">
+          <p>
+            Kingston FURY 16GB KIT DDR4 3200MHz CL16 Beast RGB Kingston FURY 16GB KIT DDR4 3200MHz CL16 Beast RG
+          </p>
+          <br>
+          <p style="text-align: center;"><b>29 390 Ft</b></p>
+          <a onclick="hozzaad('Kingston FURY 16GB')" class="btn">Kosárba</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header">
+          <h1>Kingston FURY Beast 16GB</h1>
+        </div>
+        <div class="card-body">
+          <img src="https://www.pcx.hu/pcx_upload/image/F_Peter/2021/02/2564358-n16.jpg" width="50%" height="24%"  alt="HARDVEREK" title="hardverek">
+          <p>
+            Kingston FURY Beast 16GB DDR4 3200MHz memória (KF432C16BB1/16)
+          </p>
+          <br>
+          <p style="text-align: center;"><b>28 691 Ft</b></p>
+          <a onclick="hozzaad('Kingston FURY Beast 16GB')" class="btn">Kosárba</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header">
+          <h1>RAM Corsair Vengeance PRO</h1>
+        </div>
+        <div class="card-body">
+          <img src="https://i1.wp.com/image.ibb.co/b1OcX8/DSCF5671.jpg?resize=696%2C374&ssl=1" width="50%" height="24%"  alt="HARDVEREK" title="hardverek">
+          <p>
+            Review RAM Corsair Vengeance RGB PRO DDR4 3200MHz CL16 : Memori RGB yang Kencang
+          </p>
+          <br>
+          <p style="text-align: center;"><b>12 150 Ft</b></p>
+          <a onclick="hozzaad('RAM Corsair Vengeance PRO')" class="btn">Kosárba</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header">
+          <h1>G.Skill Trident Z Royal DDR4</h1>
+        </div>
+        <div class="card-body">
+          <img src="https://merlinhardver.hu/tinymc_upload/9w4zaHWeqZakip41.jpg" width="50%" height="24%"  alt="HARDVEREK" title="hardverek">
+          <p>
+            G.Skill Trident Z Royal DDR4 16GB (2x8GB) 4600MHz CL18 1.45V XMP 2.0 Memória Arany
+          </p>
+          <br>
+          <p style="text-align: center;"><b>155 170 Ft</b></p>
+          <a onclick="hozzaad('G.Skill Trident Z Royal DDR4')" class="btn">Kosárba</a>
+      </div>
+  </div>
+</div>
+<div class="heading">
+  <h1 style="text-align: left; color: white;">Processzorok</h1>
+</div>
+<div class="row">
+  <div class="card">
+    <div class="card-header">
+      <h1>Intel Core i9</h1>
+    </div>
+    <div class="card-body">
+      <img src="https://p1.akcdn.net/full/884604270.intel-core-i9-12900k-16-core-2-40ghz-lga1700-box.jpg" width="50%" height="24%"  alt="HARDVEREK" title="hardverek">
+      <p>
+        Intel Core i9-12900K processzor (BX8071512900K)
+      </p>
+      <br>
+      <p style="text-align: center;"><b>244 090 Ft</b></p>
+      <a onclick="hozzaad('Intel Core i9')" class="btn">Kosárba</a>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-header">
+      <h1>AMD Ryzen 5</h1>
+    </div>
+    <div class="card-body">
+      <img src="https://officedepot.fra1.digitaloceanspaces.com/amd-ryzen-5-5600x-3-70ghz-socket-am4-32mb-5600x-box-processzor.png" width="50%" height="24%"  alt="HARDVEREK" title="hardverek">
+      <p>
+        AMD Ryzen 5 5600X 100-100000065BOX processzor
+      </p>
+      <br>
+      <p style="text-align: center; color: Red;">95.000Ft</p>
+      <a onclick="hozzaad('AMD Ryzen 5')" class="btn">Kosárba</a>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-header">
+      <h1>Intel Core i7</h1>
+    </div>
+    <div class="card-body">
+      <img src="https://media.ldlc.com/r1600/ld/products/00/05/67/33/LD0005673317_1.jpg" width="50%" height="28%"  alt="HARDVEREK" title="hardverek">
+      <p>
+        Intel Core i7-10700F
+      </p>
+      <br>
+      <p style="text-align: center;"><b>103 980 Ft</b></p>
+      <a onclick="hozzaad('Intel Core i7')" class="btn">Kosárba</a>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-header">
+      <h1>AMD Ryzen 7</h1>
+    </div>
+    <div class="card-body">
+      <img src="https://s13emagst.akamaized.net/products/33357/33356155/images/res_c88c513dbc2a246a90e01854aa1cf2d9.jpg" width="50%" height="24%"  alt="HARDVEREK" title="hardverek">
+      <p>
+        AMD Ryzen 7 5800X processzor (100-100000063WOF)
+      </p>
+      <br>
+      <p style="text-align: center;"><b>138 590 Ft</b></p>
+      <a onclick="hozzaad('AMD Ryzen 7')" class="btn">Kosárba</a>
+  </div>
+</div>
+</div>
+<div class="heading">
+  <h1 style="text-align: left; color: white;">Tápegységek</h1>
+</div>
+<div class="row">
+  <div class="card">
+    <div class="card-header">
+      <h1>ASUS ROG Thor </h1>
+    </div>
+    <div class="card-body">
+      <img src="https://p1.akcdn.net/full/543969630.asus-rog-thor-1200w-80-platinum-fully-modular-rog-thor-1200p.jpg" width="50%" height="24%"  alt="HARDVEREK" title="hardverek">
+      <p>
+        ASUS ROG Thor 1200P 1200 wattos platinum minősítésű moduláris tápegység. - ASUS Aura Sync világítás beépített Aura RGB LED-el
+      </p>
+      <br>
+      <p style="text-align: center;"><b>146 889 Ft</b></p>
+      <a onclick="hozzaad('ASUS ROG Thor')" class="btn">Kosárba</a>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-header">
+      <h1>Cooler Master</h1>
+    </div>
+    <div class="card-body">
+      <img src="https://p1.akcdn.net/full/469159509.cooler-master-masterwatt-750w-bronze-mpx-7501-amaab.jpg" width="51%" height="32.5%"  alt="HARDVEREK" title="hardverek">
+      <p>
+        Cooler Master 700W MWE White tápegység (MPE-7001-ACABW-EU)
+      </p>
+      <br>
+      <p style="text-align: center;"><b>20 991 Ft</b></p>
+      <a onclick="hozzaad('Cooler Master 700W MWE White tápegység')" class="btn">Kosárba</a>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-header">
+      <h1>ASUS ROG Strix White</h1>
+    </div>
+    <div class="card-body">
+      <img src="https://http2.mlstatic.com/D_NQ_NP_981308-MLA44664753182_012021-O.jpg" width="50%" height="22%"  alt="HARDVEREK" title="hardverek">
+      <p>
+        ASUS ROG Strix White Tápegység, 80 PLUS® Gold, 850W, Full Moduláris
+      </p>
+      <br>
+      <p style="text-align: center;"><b>69 090 Ft</b></p>
+      <a onclick="hozzaad('ASUS ROG Strix White')" class="btn">Kosárba</a>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-header">
+      <h1>Approx</h1>
+    </div>
+    <div class="card-body">
+      <img src="https://bevachip.hu/img/o/e07b0c19e4d9080a4d1813c6108db005-655068.jpg" width="53%" height="34%"  alt="HARDVEREK" title="hardverek">
+      <p>
+        Approx 800W APP800PSV2 tápegység
+      </p>
+      <br>
+      <p style="text-align: center;"><b>16 690 Ft</b></p>
+      <a onclick="hozzaad('Approx 800W APP800PSV2 tápegység')" class="btn">Kosárba</a>
+  </div>
+</div>
+</div>
+<div class="heading">
+  <h1 style="text-align: left; color: white;">Alaplapok</h1>
+</div>
+<div class="row">
+  <div class="card">
+    <div class="card-header">
+      <h1>ASUS Alaplap AM4</h1>
+    </div>
+    <div class="card-body">
+      <img src="https://s13emagst.akamaized.net/products/32172/32171893/images/res_039c252abc65409c7525ed438b027d66.jpg?width=450&height=450&hash=7C4FE9923486F3DF370E1508E9458A3C" width="53%" height="34%"  alt="HARDVEREK" title="hardverek">
+      <p>
+        ASUS Alaplap AM4 ROG STRIX B550-A GAMING AMD B550, ATX
+      </p>
+      <br>
+      <p style="text-align: center;"><b>68 490 Ft</b></p>
+      <a onclick="hozzaad('ASUS Alaplap AM4')" class="btn">Kosárba</a>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-header">
+      <h1>ASUS ROG STRIX Z590-E</h1>
+    </div>
+    <div class="card-body">
+      <img src="https://s13emagst.akamaized.net/products/34682/34681437/images/res_079afb6d5c80e60dc4f02dd379a67600.jpg?width=450&height=450&hash=0BDBD5E0D7537B01EC346D3F051FD837" width="53%" height="27%"  alt="HARDVEREK" title="hardverek">
+      <p>
+        ASUS ROG STRIX Z590-E GAMING WIFI Alaplap, Socket 1200
+      </p>
+      <br>
+      <p style="text-align: center;"><b>145 790 Ft</b></p>
+      <a onclick="hozzaad('ASUS ROG STRIX Z590-E')" class="btn">Kosárba</a>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-header">
+      <h1>ASUS AMD ROG</h1>
+    </div>
+    <div class="card-body">
+      <img src="https://s13emagst.akamaized.net/products/30842/30841058/images/res_f7d8f0e52ac0371f2fe759a321fce3f7.jpg?width=450&height=450&hash=5CCAA9E791E73E46A333CC0BDD0C45C3" width="53%" height="34%"  alt="HARDVEREK" title="hardverek">
+      <p>
+        ASUS AMD ROG STRIX B550-F GAMING alaplap
+      </p>
+      <br>
+      <p style="text-align: center; color: Red;">47.000Ft</p>
+      <a onclick="hozzaad('ASUS AMD ROG')" class="btn">Kosárba</a>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-header">
+      <h1>ASROCK B450M</h1>
+    </div>
+    <div class="card-body">
+      <img src="https://www.bestmarkt.hu/img/o/496741-b6db6.jpg" width="53%" height="30%"  alt="HARDVEREK" title="hardverek">
+      <p>
+        ASROCK B450M STEEL LEGEND Alaplap Támogatja a DDR4 3533+ (OC)
+      </p>
+      <br>
+      <p style="text-align: center;"><b>29 880 Ft</b></p>
+      <a onclick="hozzaad('ASROCK B450M')" class="btn">Kosárba</a>
+  </div>
+</div>
+</div>
+<div class="heading">
+  <h1 style="text-align: left; color: white;">SSDék</h1>
+</div>
+<div class="row">
+  <div class="card">
+    <div class="card-header">
+      <h1>Kingston 960GB</h1>
+    </div>
+    <div class="card-body">
+      <img src="https://cdn.laptopszalon.hu/img/webshop/product/large/170712034230_kingston40040037120.jpg" width="53%" height="30%"  alt="HARDVEREK" title="hardverek">
+      <p>
+        Kingston 960GB SA400S37/960G SSD meghajtó
+      </p>
+      <br>
+      <p style="text-align: center;"><b>35 490 Ft</b></p>
+      <a onclick="hozzaad('Kingston 960GB')" class="btn">Kosárba</a>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-header">
+      <h1>Samsung 870 EVO</h1>
+    </div>
+    <div class="card-body">
+      <img src="https://s13emagst.akamaized.net/products/34725/34724872/images/res_44567845f423152a739248e6e17bc89c.jpg?width=450&height=450&hash=27E165E36BF5115A0256F9064DD0A06B" width="53%" height="26.5%"  alt="HARDVEREK" title="hardverek">
+      <p>
+        Samsung 870 EVO Solid State Drive (SSD) meghajtó 2.5", 500GB, SATA 6Gbps
+      </p>
+      <br>
+      <p style="text-align: center;"><b>25 190 Ft</b></p>
+      <a onclick="hozzaad('Samsung 870 EVO')" class="btn">Kosárba</a>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-header">
+      <h1>Samsung 970 EVO</h1>
+    </div>
+    <div class="card-body">
+      <img src="https://s13emagst.akamaized.net/products/19686/19685854/images/res_e64311e3130eabc6f6a73342cdeff70b.jpg?width=450&height=450&hash=F3FE18C1FE54DE21B9E9AF0647EC4F79" width="53%" height="30.5%"  alt="HARDVEREK" title="hardverek">
+      <p>
+        Samsung 970 EVO Plus SSD meghajtó, 1TB, NVMe, M.2.
+      </p>
+      <br>
+      <p style="text-align: center;"><b>45 990 Ft</b></p>
+      <a onclick="hozzaad('Samsung 970 EVO')" class="btn">Kosárba</a>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-header">
+      <h1>Asus ROG</h1>
+    </div>
+    <div class="card-body">
+      <img src="https://www.bluechip.hu/img/cache/2/00/asus_rog_strix_arion_lite.jpg" width="53%" height="35%"  alt="HARDVEREK" title="hardverek">
+      <p>
+        Asus ROG Strix Arion Lite Tb Háttér
+      </p>
+      <br>
+      <p style="text-align: center;"><b>14 489 Ft</b></p>
+      <a onclick="hozzaad('Asus ROG')" class="btn">Kosárba</a>
+  </div>
+</div>
+</div>
+<div class="heading">
+  <h1 style="text-align: left; color: white;">Merevlemez (HDD)</h1>
+</div>
+<div class="row">
+  <div class="card">
+    <div class="card-header">
+      <h1>Seagate Belső merevlemez</h1>
+    </div>
+    <div class="card-body">
+      <img src="https://www.videosecurity.hu/img/13174/ST3000VX009/264x264,r/ST3000VX009.jpg?time=1635957185" width="53%" height="26%"  alt="HARDVEREK" title="hardverek">
+      <p>
+        Seagate Belső merevlemez 1 TB SATA, 3.5in
+      </p>
+      <br>
+      <p style="text-align: center;"><b>31 262 Ft</b></p>
+      <a onclick="hozzaad('Seagate Belső merevlemez')" class="btn">Kosárba</a>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-header">
+      <h1>SATA3 merevlemez</h1>
+    </div>
+    <div class="card-body">
+      <img src="https://nagyker.pcarena.hu/termekkepek/eredeti/500-gb-sata3-merevlemez-vegyes-3-5-11010-11010-1.jpg" width="53%" height="36.5%"  alt="HARDVEREK" title="hardverek">
+      <p>
+        500 GB SATA3 merevlemez (3.5)
+      </p>
+      <br>
+      <p style="text-align: center;"><b>5 900 Ft</b></p>
+      <a onclick="hozzaad('SATA3 merevlemez')" class="btn">Kosárba</a>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-header">
+      <h1>Western Digital</h1>
+    </div>
+    <div class="card-body">
+      <img src="https://p1.akcdn.net/mid/355571283.western-digital-3-5-1tb-64mb-5400rpm-sata3-wd10ezrz.jpg" width="53%" height="32.5%"  alt="HARDVEREK" title="hardverek">
+      <p>
+        Western Digital 3.5 1TB 64MB 5400rpm SATA3 (WD10EZRZ)
+      </p>
+      <br>
+      <p style="text-align: center;"><b>12 380 Ft</b></p>
+      <a onclick="hozzaad('Western Digital')" class="btn">Kosárba</a>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-header">
+      <h1>Merevlemez HDD</h1>
+    </div>
+    <div class="card-body">
+      <img src="https://s13emagst.akamaized.net/products/16848/16847545/images/res_71dfd4cfed8374f0b4d086ce5977dca3.jpg?width=450&height=450&hash=973A975C603159E08E1CEB6FC8E397F0" width="53%" height="37%"  alt="HARDVEREK" title="hardverek">
+      <p>
+        Merevlemez HDD 500GB felújítva
+      </p>
+      <br>
+      <p style="text-align: center;"><b>8 592 Ft</b></p>
+      <a onclick="hozzaad('Merevlemez HDD')" class="btn">Kosárba</a>
+  </div>
+</div>
+</div>
+<div class="heading">
+  <h1 style="text-align: left; color: white;">Számítógép ház</h1>
+</div>
+<div class="row">
+  <div class="card">
+    <div class="card-header">
+      <h1>Centry Star gépház V2</h1>
+    </div>
+    <div class="card-body">
+      <img src="https://p2.lealkudtuk.hu/photos/bf/f7/centry-star-gephaz-v2-3f06_2_280.jpg?v=11" width="53%" height="27%"  alt="HARDVEREK" title="hardverek">
+      <p>
+        Kompatibilis alaplap MicroATX, ATX, ITX hidegen hengerelt acéllemez nincs szabványos tápegység
+      </p>
+      <br>
+      <p style="text-align: center;"><b>12 990 Ft</b></p>
+      <a onclick="hozzaad('Centry Star gépház V2')" class="btn">Kosárba</a>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-header">
+      <h1>Aerocool Cylon Mini</h1>
+    </div>
+    <div class="card-body">
+      <img src="https://www.bestmarkt.hu/img/o/573133-67a67.png" width="53%" height="36.5%"  alt="HARDVEREK" title="hardverek">
+      <p>
+        Aerocool Cylon Mini RGB Fehér Számítógépház (ACCS-PV12012.21)
+      </p>
+      <br>
+      <p style="text-align: center;"><b>10 991 Ft</b></p>
+      <a onclick="hozzaad('Aerocool Cylon Mini RGB Fehér Számítógépház')" class="btn">Kosárba</a>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-header">
+      <h1>Zalman N5</h1>
+    </div>
+    <div class="card-body">
+      <img src="https://p1.akcdn.net/full/824254329.zalman-n5-mf-rgb.jpg" width="53%" height="32.5%"  alt="HARDVEREK" title="hardverek">
+      <p>
+        Zalman N5 MF fekete számítógépház Beépíthető processzor hűtő magasság (mm): 158
+      </p>
+      <br>
+      <p style="text-align: center; color: Red;">15.000Ft</p>
+      <a onclick="hozzaad('Zalman N5')" class="btn">Kosárba</a>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-header">
+      <h1>SZÁMÍTÓGÉPHÁZ FCPC-13</h1>
+    </div>
+    <div class="card-body">
+      <img src="https://fcmarket.hu/SZAMITOGEPHAZ_FCPC-13-i22661.jpg" width="53%" height="23%"  alt="HARDVEREK" title="hardverek">
+      <p>
+        Méret (előlap nélkül): 370mm*180mm*420mm(L*W*H) Anyag: 0.45mm SPCC all coated in black Alaplap-típus: Micro-ATX
+      </p>
+      <br>
+      <p style="text-align: center;"><b>6 998 Ft</b></p>
+      <a onclick="hozzaad('SZÁMÍTÓGÉPHÁZ FCPC-13')" class="btn">Kosárba</a>
+  </div>
+</div>
+</div>       
+</body>
+
+</html>
